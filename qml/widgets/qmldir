@@ -1,0 +1,17 @@
+TextFieldDouble 1.0 TextFieldDouble.qml
+LFSSpinBoxDouble 1.0 LFSSpinBoxDouble.qml
+LFSStartButton 1.0 LFSStartButton.qml
+FLSVideoListDelegate 1.0 FLSVideoListDelegate.qml
+LFSFlatButton 1.0 LFSFlatButton.qml
+LFSTextField 1.0 LFSTextField.qml
+LFSText 1.0 LFSText.qml
+LFSToggleSlider 1.0 LFSToggleSlider.qml
+LFSTumbler 1.0 LFSTumbler.qml
+SwitchSimple 1.0 SwitchSimple.qml
+LFSBatchPanelFooter 1.0 LFSBatchPanelFooter.qml
+LFSLineDivider 1.0 LFSLineDivider.qml
+FLSStitchingViewDelegate 1.0 FLSStitchingViewDelegate.qml
+LFSStitchingDelegateFooter 1.0 LFSStitchingDelegateFooter.qml
+LFSScrollbar 1.0 LFSScrollbar.qml
+FLSLeftPanelDelegate 1.0 FLSLeftPanelDelegate.qml
+LFSUpdaterButton 1.0 LFSUpdaterButton.qml
