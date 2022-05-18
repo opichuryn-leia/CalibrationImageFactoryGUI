@@ -155,7 +155,7 @@ bool drawACTColumns(QPainter& painter, qreal imageWidth, qreal imageHeight, int 
     const qreal pinWidth = 10;
     const qreal pinWidthHalf = pinWidth / 2;
     const qreal pinHeightRatio = 0.45;
-    const int stripesNumber = rows * ACT_SET.size();
+    const int stripesNumber = rows * static_cast<int>(ACT_SET.size());
     const qreal stripeHeight = imageHeight / stripesNumber;
     const qreal pinHeight = stripeHeight * pinHeightRatio;
     const qreal pinYOffset = stripeHeight * (1 - pinHeightRatio) / 2;

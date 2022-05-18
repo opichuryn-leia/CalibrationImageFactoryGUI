@@ -56,6 +56,7 @@ QString ApplicationDefaults::dir() const
         return fallback;
     }
     qFatal("Cannot find default directory for images");
+    return "";
 }
 
 ApplicationDefaults::ApplicationDefaults(QObject *parent)

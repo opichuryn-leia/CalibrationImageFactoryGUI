@@ -5,13 +5,12 @@ import widgets 1.0 as WD
 import globals 1.0 as GL
 import Leia 1.0
 
-
 Window {
     width: 640
     height: 480
     visible: true
     title: qsTr("CalibrationImageFactoryGUI")
-    flags: Qt.WindowStaysOnTopHint
+    flags: Qt.WindowStaysOnTopHint|Qt.Sheet|Qt.WindowTitleHint|Qt.WindowCloseButtonHint|Qt.WindowMinimizeButtonHint
 
     onClosing: {
         calibrationView.close();
