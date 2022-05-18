@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>campton-book.otf</file>
+        <file>campton-medium.otf</file>
+    </qresource>
+</RCC>

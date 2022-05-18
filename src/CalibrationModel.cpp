@@ -60,7 +60,7 @@ ModelItemPtr CalibrationModel::get(int index) const
 
 int CalibrationModel::rowCount(const QModelIndex &) const
 {
-    return m_model.size();
+    return static_cast<int>(m_model.size());
 }
 
 QVariant CalibrationModel::data(const QModelIndex &index, int) const

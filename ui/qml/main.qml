@@ -132,8 +132,6 @@ Window {
                         visible: _ms.containsMouse
                     }
 
-
-
                     Rectangle {
                         anchors.fill: parent
                         color: "transparent"

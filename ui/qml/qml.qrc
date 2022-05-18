@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>widgets/FLSLeftPanelDelegate.qml</file>
+        <file>widgets/FLSStitchingViewDelegate.qml</file>
+        <file>widgets/FLSVideoListDelegate.qml</file>
+        <file>widgets/LFSBatchPanelFooter.qml</file>
+        <file>widgets/LFSFlatButton.qml</file>
+        <file>widgets/LFSLineDivider.qml</file>
+        <file>widgets/LFSProgressBar.qml</file>
+        <file>widgets/LFSScrollbar.qml</file>
+        <file>widgets/LFSSpinBoxDouble.qml</file>
+        <file>widgets/LFSStartButton.qml</file>
+        <file>widgets/LFSStitchingDelegateFooter.qml</file>
+        <file>widgets/LFSText.qml</file>
+        <file>widgets/LFSTextField.qml</file>
+        <file>widgets/LFSToggleSlider.qml</file>
+        <file>widgets/LFSTumbler.qml</file>
+        <file>widgets/LFSUpdaterButton.qml</file>
+        <file>widgets/qmldir</file>
+        <file>widgets/SwitchSimple.qml</file>
+        <file>widgets/TextFieldDouble.qml</file>
+        <file>globals/Globals.qml</file>
+        <file>globals/qmldir</file>
+    </qresource>
+</RCC>

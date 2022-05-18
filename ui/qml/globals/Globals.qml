@@ -19,12 +19,12 @@ Item {
 
     FontLoader {
         id: fontCamptonBook
-        source: "qrc:/fonts/campton-book.otf"
+        source: "qrc:/campton-book.otf"
     }
 
     FontLoader {
         id: _camptonLoader
-        source: "qrc:/fonts/campton-medium.otf"
+        source: "qrc:/campton-medium.otf"
     }
 }
 

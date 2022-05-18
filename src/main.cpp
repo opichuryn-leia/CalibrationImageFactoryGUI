@@ -2,10 +2,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "src/CalibrationView.h"
-#include <src/CalibrationModel.h>
-#include "src/TextFieldDoubleValidator.h"
-#include "src/ApplicationDefaults.h"
+#include "CalibrationView.h"
+#include "CalibrationModel.h"
+#include "TextFieldDoubleValidator.h"
+#include "ApplicationDefaults.h"
 
 int main(int argc, char *argv[])
 {
@@ -24,11 +24,11 @@ int main(int argc, char *argv[])
 
     CalibrationView calibrationView;
     QQmlApplicationEngine engine;
-    engine.addImportPath("qrc:/qml/");
+    engine.addImportPath("qrc:/");
     engine.rootContext()->setContextProperty("calibrationView", &calibrationView);
     engine.rootContext()->setContextProperty("defaultLocale", locale);
     engine.rootContext()->setContextProperty("appDefaults", &ApplicationDefaults::instance());
-    const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
