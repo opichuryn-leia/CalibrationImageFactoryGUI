@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(LFS_TARGET CalibrationFactoryGUI)
 project(${LFS_TARGET}Project LANGUAGES CXX)
 
-list(APPEND QT_COMPONENTS Core Quick Gui)
+list(APPEND QT_COMPONENTS Core Quick Gui SerialPort)
 
 find_package(QT NAMES Qt5 COMPONENTS ${QT_COMPONENTS} REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS ${QT_COMPONENTS} REQUIRED)
@@ -52,7 +52,10 @@ target_compile_definitions(${LFS_TARGET}
 
 target_link_directories(${LFS_TARGET} PRIVATE ${EXTRA_LIBS})
 target_link_libraries(${LFS_TARGET}
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick
+  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::SerialPort
 )
+
+file(GLOB EXTERNAL_LIBS ${CMAKE_CURRENT_SOURCE_DIR}/deploy/win/lib/*)
+file(COPY ${EXTERNAL_LIBS} DESTINATION ${BIN_DIR})
 
 add_subdirectory(deploy)

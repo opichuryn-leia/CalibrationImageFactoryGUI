@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import QtQuick.Controls 1.4
 
 import widgets 1.0 as WD
 import globals 1.0 as GL
@@ -242,6 +243,7 @@ Window {
             }
 
             WD.LFSFlatButton {
+                id: _resetButton
                 text: "Reset to defaults"
                 anchors {
                     left: _manualText.left
@@ -258,6 +260,78 @@ Window {
                 }
             }
 
+            WD.LFSSpinBoxDouble {
+                id: _centerViewSpin
+
+                anchors {
+                    top: _resetButton.bottom
+                    topMargin: 40
+                    left: _resetButton.left
+                }
+
+                step: 0.1
+                min: -1000
+                max: 1000
+                caption: "CenterView: "
+                value: leiaDisplay.centerView
+                decimals: 2
+            }
+
+            WD.LFSTextField {
+                id: _comPortField
+
+                anchors {
+                    left: _centerViewSpin.left
+                    top: _centerViewSpin.bottom
+                    topMargin: 10
+                }
+
+                width: 100
+                readOnly: false
+                text: leiaDisplay.comPort
+            }
+
+            WD.LFSText {
+                id: _legacyText
+                text: "IsLegacyDisplay"
+                anchors {
+                    verticalCenter: _comPortField.verticalCenter
+                    left: _comPortField.right
+                    leftMargin: 10
+                }
+            }
+
+            WD.LFSToggleSlider {
+                id: _legacySlider
+                anchors {
+                    verticalCenter: _legacyText.verticalCenter
+                    left: _legacyText.right
+                    leftMargin: 10
+                }
+                width: 35
+                height: 20
+                value: leiaDisplay.isLegacyDisplay
+            }
+
+            WD.LFSFlatButton {
+                id: _burnButton
+                text: "Burn display settings"
+                anchors {
+                    left: _comPortField.left
+                    top: _comPortField.bottom
+                    topMargin: 10
+                }
+
+                height: implicitHeight + 10
+
+                onTriggered: {
+                    console.log("burn clicked");
+                    leiaDisplay.isLegacyDisplay = _legacySlider.checked;
+                    leiaDisplay.centerView = _centerViewSpin.value;
+                    leiaDisplay.comPort = _comPortField.text;
+                    leiaDisplay.burnDisplay();
+                }
+            }
         }
 
         WD.LFSLineDivider {

@@ -30,9 +30,12 @@ set(DEPENDENCIES_FILE ${BIN_DIR}/dependencies.txt)
 add_custom_command(TARGET deploy POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E echo libcrypto*.dll         >> ${DEPENDENCIES_FILE}
                    COMMAND ${CMAKE_COMMAND} -E echo libssl*.dll            >> ${DEPENDENCIES_FILE}
+                   COMMAND ${CMAKE_COMMAND} -E echo libssl*.dll            >> ${DEPENDENCIES_FILE}
+                   COMMAND ${CMAKE_COMMAND} -E echo LeiaDisplayParams.dll  >> ${DEPENDENCIES_FILE}
+                   COMMAND ${CMAKE_COMMAND} -E echo LeiaDisplaySdkCpp.dll  >> ${DEPENDENCIES_FILE}
                    COMMAND ${CMAKE_COMMAND} -E echo ${BIN_DIR}/${LFS_TARGET}.exe >> ${DEPENDENCIES_FILE}
                    COMMAND ${CMAKE_COMMAND} -E env
-                   "PATH=$ENV{PATH};${BIN_DIR}"
+                   "PATH=$ENV{PATH};${BIN_DIR};${CMAKE_CURRENT_SOURCE_DIR}/lib"
                    ${BIN_DIR}/${COPY_DEPS_APP} ${DEPENDENCIES_FILE} ${DEPLOY_DIR}
                    COMMAND ${CMAKE_COMMAND} -E echo Delivery can be found at ${DEPLOY_DIR}
                    COMMENT "Copying model and binaries ..."
