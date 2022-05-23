@@ -28,6 +28,9 @@ Row {
     property alias title: _title
     property real value
     property alias decimals: _input.decimals
+    property bool steppersVisile: true
+
+    signal inputAccepted();
 
     function increment() {
         _input.setValue(Math.min(root.max, root.value + root.step))
@@ -53,15 +56,16 @@ Row {
 
     Item {
         // spacer
-        width: 5
+        width: _title === "" ? 0 : 5
         height: root.height
     }
 
     Image {
         height: root.height - 5
-        width: height
+        width: root.steppersVisile ? height : 0
         anchors.verticalCenter: root.verticalCenter
         source: "qrc:/minus.png"
+        visible: root.steppersVisile
 
         MouseArea {
             id: _decrementBtn
@@ -98,14 +102,19 @@ Row {
 
             Keys.onUpPressed: { root.increment(); }
             Keys.onDownPressed: { root.decrement(); }
+
+            onAccepted: {
+                root.inputAccepted();
+            }
         }
     }
 
     Image {
         height: root.height - 5
-        width: height
+        width: root.steppersVisile ? height : 0
         anchors.verticalCenter: root.verticalCenter
         source: "qrc:/plus.png"
+        visible: root.steppersVisile
 
         MouseArea {
             id: _incrementBtn

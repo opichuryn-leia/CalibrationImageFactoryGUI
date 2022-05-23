@@ -22,5 +22,6 @@
         <file>widgets/TextFieldDouble.qml</file>
         <file>globals/Globals.qml</file>
         <file>globals/qmldir</file>
+        <file>widgets/LFSSlider.qml</file>
     </qresource>
 </RCC>

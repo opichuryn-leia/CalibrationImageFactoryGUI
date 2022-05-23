@@ -5,6 +5,7 @@ FLSVideoListDelegate 1.0 FLSVideoListDelegate.qml
 LFSFlatButton 1.0 LFSFlatButton.qml
 LFSTextField 1.0 LFSTextField.qml
 LFSText 1.0 LFSText.qml
+LFSSlider 1.0 LFSSlider.qml
 LFSToggleSlider 1.0 LFSToggleSlider.qml
 LFSTumbler 1.0 LFSTumbler.qml
 SwitchSimple 1.0 SwitchSimple.qml

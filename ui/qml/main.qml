@@ -260,29 +260,71 @@ Window {
                 }
             }
 
-            WD.LFSSpinBoxDouble {
-                id: _centerViewSpin
-
+            WD.LFSText {
+                id: _centerViewText
                 anchors {
                     top: _resetButton.bottom
                     topMargin: 40
                     left: _resetButton.left
                 }
 
-                step: 0.1
-                min: -1000
-                max: 1000
-                caption: "CenterView: "
+                text: "CenterView"
+            }
+
+            WD.LFSSlider {
+                id: _centerViewSpin
+
+                anchors {
+                    verticalCenter: _centerViewText.verticalCenter
+                    left: _centerViewText.right
+                    leftMargin: 10
+                }
+
+                stepSize: 1
+                from: 0
+                to: 10000
                 value: leiaDisplay.centerView
-                decimals: 2
+                width: 100
+                height: 20
+
+                onValueChanged: {
+                    leiaDisplay.centerView = value;
+                }
+            }
+
+            Connections {
+                target: leiaDisplay
+                function onCenterViewChanged() {
+                    _centerViewSpin.value = leiaDisplay.centerView;
+                    _spinner.setValue(leiaDisplay.centerView);
+                }
+            }
+
+            WD.LFSSpinBoxDouble {
+                id: _spinner
+                anchors {
+                    verticalCenter: _centerViewSpin.verticalCenter
+                    left: _centerViewSpin.right
+                    leftMargin: 10
+                }
+
+                step: 1
+                min: 0
+                max: 10000
+                value: leiaDisplay.centerView
+                steppersVisile: false
+                decimals: 0
+                onValueChanged: {
+                    leiaDisplay.centerView = value;
+                }
             }
 
             WD.LFSTextField {
                 id: _comPortField
 
                 anchors {
-                    left: _centerViewSpin.left
-                    top: _centerViewSpin.bottom
+                    left: _centerViewText.left
+                    top: _centerViewText.bottom
                     topMargin: 10
                 }
 
