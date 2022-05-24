@@ -280,9 +280,9 @@ Window {
                     leftMargin: 10
                 }
 
-                stepSize: 1
-                from: 0
-                to: 10000
+                stepSize: 0.05
+                from: leiaDisplay.centerViewMin
+                to: leiaDisplay.centerViewMax
                 value: leiaDisplay.centerView
                 width: 100
                 height: 20
@@ -309,11 +309,11 @@ Window {
                 }
 
                 step: 1
-                min: 0
-                max: 10000
+                min: leiaDisplay.centerViewMin
+                max: leiaDisplay.centerViewMax
                 value: leiaDisplay.centerView
                 steppersVisile: false
-                decimals: 0
+                decimals: 2
                 onValueChanged: {
                     leiaDisplay.centerView = value;
                 }

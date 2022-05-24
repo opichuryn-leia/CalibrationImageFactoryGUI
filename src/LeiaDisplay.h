@@ -13,6 +13,8 @@ class LeiaDisplay : public QObject
     Q_PROPERTY(bool isLegacyDisplay READ isLegacyDisplay WRITE setIsLegacyDisplay NOTIFY isLegacyDisplayChanged)
     Q_PROPERTY(QString comPort READ comPort WRITE setComPort NOTIFY comPortChanged)
     Q_PROPERTY(qreal centerView READ centerView WRITE setCenterView NOTIFY centerViewChanged)
+    Q_PROPERTY(qreal centerViewMax READ centerViewMax CONSTANT)
+    Q_PROPERTY(qreal centerViewMin READ centerViewMin CONSTANT)
 
 public:
     static LeiaDisplay& instance();
@@ -26,6 +28,9 @@ public:
 
     qreal centerView() const;
     void setCenterView(double value);
+
+    qreal centerViewMax() const;
+    qreal centerViewMin() const;
 
     int initialize();
     int teardown();
@@ -62,7 +67,7 @@ private:
         int screenHeight{0};
         double act[9];
         int num_acts{0};
-        double centerViewNum{0};
+        double centerViewNum{5.5};
         double act_gamma{0};
         double act_beta{0};
         double pixelPitch{0};

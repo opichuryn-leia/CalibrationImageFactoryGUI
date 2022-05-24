@@ -555,9 +555,20 @@ void LeiaDisplay::setCenterView(double value)
 {
     if (m_properties.centerViewNum != value)
     {
+        qDebug() << "setCenterView " << value;
         m_properties.centerViewNum = value;
         emit centerViewChanged();
     }
+}
+
+qreal LeiaDisplay::centerViewMax() const
+{
+    return 12;
+}
+
+qreal LeiaDisplay::centerViewMin() const
+{
+    return 0;
 }
 
 void LeiaDisplay::parseConfig(const QString& displayJson)
